@@ -1,19 +1,17 @@
-
 /*
- * Project: Library Simulation System (Phase #1)
- * Course: CSC 111 - Computer Programming - I
- * Group Members:
- * 1. Khalifa Al-Hashil , 446104726
-
+ Project: Library Simulation System (Phase #1)
+ Course: CSC 111
+ Group Members: 1. Khalifa Al-Hashil , ID : 446104726
  */
 
 import java.util.Scanner;
-
 public class LibrarySimulator {
-
     public static void main(String[] args) {
+
+        // Scanner For User Input //
         Scanner Input = new Scanner(System.in);
 
+        // Predefined 3 Library Accounts //
         int User_ID1 = 446000000 , User_Books1 = 0 ;
         String User_Name1 = "Bader Al-Hashil" ;
 
@@ -23,15 +21,18 @@ public class LibrarySimulator {
         int User_ID3 = 446222222 , User_Books3 = 0;
         String User_Name3 = "Mohammed Al-Subaie" ;
 
+        // Administrator Statistics
         double totalRevenue = 0.0;
         int TotalBorrows = 0;
         int TotalReturns = 0;
 
+        // This Will Store The User's Main Menu Choice
         int Choice;
 
         System.out.println("\n============================================= ");
         System.out.println("Welcome To The Library ");
 
+        // A Do-While Loop Is Used Here So That The Menu Is Shown At Least Once
         do{
 
 
@@ -65,7 +66,9 @@ public class LibrarySimulator {
                     else {
                         currentUserName = User_Name3;
                     }
+                    // Choice 2 Will Store The User Operations Menu Choice
                     int Choice2;
+
                     System.out.println("\n=============================================");
                     System.out.println("Welcome " + currentUserName + " To The Library");
 
@@ -87,17 +90,23 @@ public class LibrarySimulator {
                         System.out.println("4. View Session Summary ");
                         System.out.println("5. Exit To Main Menu \n");
                         System.out.print("Enter your choice: ");
+
+                        // Choice 2 Will Store The User Operations Menu Choice
                         Choice2 = Input.nextInt();
 
                         switch (Choice2){
 
-                            case 1 -> {
+                            case 1 ->
+                            //View Borrowed Books Count
+                            {
                                 System.out.println("\n=============================================");
                                 System.out.println("You Currently Have " + currentUserBooks + " Books Right Now");
 
                             }
 
-                            case 2 -> {
+                            case 2 ->
+                            // Borrow A Book
+                            {
                                 if (currentUserBooks < 5 ) {
                                     if (Choice == 1) User_Books1++;
                                     else if (Choice == 2) User_Books2++;
@@ -121,7 +130,9 @@ public class LibrarySimulator {
 
 
                             }
-                            case 3 -> {
+                            case 3 ->
+                            //Return A Book
+                            {
                                 if (currentUserBooks == 0 ) {
                                     System.out.println("\n=============================================");
                                     System.out.println("You Dont Have Any Books Borrowed");
@@ -143,12 +154,16 @@ public class LibrarySimulator {
 
                                 }
                             }
-                            case 4 -> {
+                            case 4 ->
+                            //View Session Summary
+                            {
                                 System.out.println("\n=============================================");
                                 System.out.println("Total Book Borrows In This Session : " + sessionBorrows + " Book(s)");
                                 System.out.println("Total Book Returns In This Session : " + sessionReturns + " Book(s)");
-                                System.out.println("You Have The Total Credit Fee of  " + sessionFees + " SAR\n");
+                                System.out.printf("You Have The Total Credit Fee of %.2f SAR %n" , sessionFees );
                             }
+
+                            //Exit To The Main Menu
                             case 5 -> {
                                 System.out.print("\n=============================================");
                                 System.out.println("\n>> Logging out. Returning to the main menu...");
@@ -161,15 +176,16 @@ public class LibrarySimulator {
                             }
                         }
                     }while (Choice2 != 5 );
+
                 }
                 case 4 -> {
-
+                    System.out.print("\n============================================= ");
                     System.out.println("\n--- Welcome, Administrator! ---");
                     int adminChoice;
 
                     do {
 
-
+                        System.out.println("============================================= ");
                         System.out.println("\nAdministrator Menu:");
                         System.out.println("1. View Total Revenue");
                         System.out.println("2. View Most Frequent Operation");
@@ -180,7 +196,7 @@ public class LibrarySimulator {
                         switch (adminChoice) {
                             case 1 -> {
                                 System.out.println("\n=============================================");
-                                System.out.println("Total Revenue: " + totalRevenue + " SAR");
+                                System.out.printf("Total Revenue:  %.2f SAR %n" , totalRevenue );
                                 System.out.println("=============================================");
                             }
 
@@ -221,23 +237,14 @@ public class LibrarySimulator {
                     System.out.println("\n=============================================");
                     System.out.println("Thanks For Trying Our Library " );
                     System.out.println("=============================================");
-                    System.exit(0); }
-            }
+                     }
 
+                     default -> {
 
+                         System.out.println("\n=============================================");
+                         System.out.println("Invalid Choice, Please select a valid option!");
 
-
-
-
-
-
-
-
-
-
-            if(Choice != 5 ) {
-                System.out.println("\n=============================================");
-                System.out.println("Invalid Choice, Please select a valid option!");
+                     }
             }
 
 
