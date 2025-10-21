@@ -14,13 +14,13 @@ public class LibrarySimulator {
     public static void main(String[] args) {
         Scanner Input = new Scanner(System.in);
 
-        int User_ID1 = 446123456 , User_Books1 = 0 ;
+        int User_ID1 = 446000000 , User_Books1 = 0 ;
         String User_Name1 = "Bader Al-Hashil" ;
 
-        int User_ID2 = 446012345 , User_Books2 = 0;
+        int User_ID2 = 446111111 , User_Books2 = 0;
         String User_Name2 = "Sultan Al-Khlaifi" ;
 
-        int User_ID3 = 446000000 , User_Books3 = 0;
+        int User_ID3 = 446222222 , User_Books3 = 0;
         String User_Name3 = "Mohammed Al-Subaie" ;
 
         double totalRevenue = 0.0;
@@ -162,9 +162,82 @@ public class LibrarySimulator {
                         }
                     }while (Choice2 != 5 );
                 }
-                case 4 -> {}
-                case 5 -> {}
+                case 4 -> {
 
+                    System.out.println("\n--- Welcome, Administrator! ---");
+                    int adminChoice;
+
+                    do {
+
+
+                        System.out.println("\nAdministrator Menu:");
+                        System.out.println("1. View Total Revenue");
+                        System.out.println("2. View Most Frequent Operation");
+                        System.out.println("3. Exit to Main Menu");
+                        System.out.print("Enter your choice : ");
+                        adminChoice = Input.nextInt();
+
+                        switch (adminChoice) {
+                            case 1 -> {
+                                System.out.println("\n=============================================");
+                                System.out.println("Total Revenue: " + totalRevenue + " SAR");
+                                System.out.println("=============================================");
+                            }
+
+
+                            case 2 -> {
+                                if (TotalBorrows > TotalReturns) {
+                                    System.out.print("=============================================");
+                                    System.out.println("Most Frequent Operation Is Borrowing With The Count Of " + TotalBorrows + " Borrowed Books");
+                                    System.out.println("=============================================\n");
+                                } else if (TotalBorrows < TotalReturns) {
+                                    System.out.println("=============================================");
+                                    System.out.println("Most Frequent Operation Is Returning With The Count Of " + TotalReturns + " Returned Books");
+                                    System.out.println("=============================================\n");
+                                }
+                                else {
+                                    System.out.println("=============================================");
+                                    System.out.println("Most Frequent Operation Is Borrowing And Returning With The Count Of " + TotalBorrows + " Borrowed Books And " + TotalReturns + " Returned Books");
+                                    System.out.println("=============================================\n");
+                                }
+                            }
+                            case 3 -> {
+                                System.out.print("=============================================");
+                                System.out.println("\n>> Logging out. Returning to the main menu...");
+
+                            }
+
+                            default -> {
+                                System.out.println("\n=============================================");
+                                System.out.println("Invalid Choice, Please select a valid option!");
+                            }
+
+
+                        }
+                    }while (adminChoice != 3 );
+
+                }
+                case 5 -> {
+                    System.out.println("\n=============================================");
+                    System.out.println("Thanks For Trying Our Library " );
+                    System.out.println("=============================================");
+                    System.exit(0); }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            if(Choice != 5 ) {
+                System.out.println("\n=============================================");
+                System.out.println("Invalid Choice, Please select a valid option!");
             }
 
 
