@@ -21,4 +21,18 @@ public class Member {
     public static int TotalBorrows = 0;
     public static int TotalReturns = 0;
 
+
+    // Constructor
+    public Member(int id, String name, int borrowedCount) {
+        this.id = id;
+        this.name = name;
+        this.borrowedCount = borrowedCount;
+        //begin session stats with 0
+        this.numViewBorrowed = 0;
+        this.numBorrows = 0;
+        this.numReturns = 0;
+        this.sessionFees = 0.0;
+    }
+
 }
+
