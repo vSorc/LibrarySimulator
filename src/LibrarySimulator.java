@@ -91,7 +91,7 @@ public class LibrarySimulator {
                         System.out.println("5. Exit To Main Menu \n");
                         System.out.print("Enter your choice: ");
 
-                        // Choice 2 Will Store The User Operations Menu Choice
+
                         Choice2 = Input.nextInt();
 
                         switch (Choice2){

@@ -50,7 +50,7 @@ public class Member {
         TotalViewBorrowed++;
 
         System.out.println("\n=============================================");
-        System.out.println("You Currently Have " + this.borrowedCount + " Books Right Now"); // [cite: 36]
+        System.out.println("You Currently Have " + this.borrowedCount + " Books Right Now");
     }
 
     public boolean borrowOne() {
