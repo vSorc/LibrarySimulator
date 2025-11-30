@@ -12,17 +12,14 @@ public class LibrarySimulator {
         Scanner Input = new Scanner(System.in);
 
         // Predefined 3 Library Accounts //
-        Member User_ID1 = New Member(4460000000, "Bader Alhashil", 0 );
+        Member User_1 = New Member(4460000000, "Bader Alhashil", 0 );
 
-        Member User_ID2 = New Member(4461111111, "Sultan Al-Khlaifi", 0 );
+        Member User_2 = New Member(4461111111, "Sultan Al-Khlaifi", 0 );
        
 
-        Member User_ID3 = New Member(4460000000, "Mohammed Al-Subaie", 0 );
+        Member User_3 = New Member(4460000000, "Mohammed Al-Subaie", 0 );
 
-        // Administrator Statistics
-        double totalRevenue = 0.0;
-        int TotalBorrows = 0;
-        int TotalReturns = 0;
+       
 
         // This Will Store The User's Main Menu Choice
         int Choice;
@@ -37,9 +34,9 @@ public class LibrarySimulator {
             System.out.println("============================================= ");
             System.out.println("\n  Please select an option : \n");
 
-            System.out.printf("1. Login as " + User_Name1 + ", ID : " + User_ID1 + "\n");
-            System.out.printf("2. Login as " + User_Name2 + ", ID : " + User_ID2 + "\n");
-            System.out.printf("3. Login as " + User_Name3 + ", ID : " + User_ID3 + "\n");
+            System.out.printf("1. Login as " +  User_1.getName() + ", ID : " + User_1.getId() + "\n");
+            System.out.printf("2. Login as " + User_2.getName() + ", ID : " + User_2.getID() + "\n");
+            System.out.printf("3. Login as " + User_3.getname() + ", ID : " + User_3.getID() + "\n");
             System.out.println("4. Login as Administrator ");
             System.out.println("5. Exit the program ");
 
