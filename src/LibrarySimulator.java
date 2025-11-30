@@ -12,14 +12,12 @@ public class LibrarySimulator {
         Scanner Input = new Scanner(System.in);
 
         // Predefined 3 Library Accounts //
-        int User_ID1 = 446000000 , User_Books1 = 0 ;
-        String User_Name1 = "Bader Al-Hashil" ;
+        Member User_ID1 = New Member(4460000000, "Bader Alhashil", 0 );
 
-        int User_ID2 = 446111111 , User_Books2 = 0;
-        String User_Name2 = "Sultan Al-Khlaifi" ;
+        Member User_ID2 = New Member(4461111111, "Sultan Al-Khlaifi", 0 );
+       
 
-        int User_ID3 = 446222222 , User_Books3 = 0;
-        String User_Name3 = "Mohammed Al-Subaie" ;
+        Member User_ID3 = New Member(4460000000, "Mohammed Al-Subaie", 0 );
 
         // Administrator Statistics
         double totalRevenue = 0.0;
