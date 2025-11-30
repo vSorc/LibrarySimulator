@@ -114,7 +114,7 @@ Member currentMember;
 
 
                             
-                    }
+                    
                             case 3 ->
                             //Return A Book
                             {
@@ -127,6 +127,7 @@ Member currentMember;
                                     System.out.println("You Dont Have Any Books Borrowed");
                                 }
                             }
+                          
                             case 4 ->
                             //View Session Summary
                             {
@@ -163,20 +164,7 @@ Member currentMember;
                         System.out.print("Enter your choice : ");
                         adminChoice = Input.nextInt();
 
-                        switch (adminChoice) {
-                            case 1 -> {
-                                System.out.println("\n=============================================");
-                                System.out.printf("Total Revenue:  %.2f SAR %n" , Member.TotalRevenue );
-                                System.out.println("=============================================");
-                            }
-
-
-                            case 2 -> {
-                                System.out.println("1. View Total Revenue");
-                        System.out.println("2. View Most Frequent Operation");
-                        System.out.println("3. Exit to Main Menu");
-                        System.out.print("Enter your choice : ");
-                        adminChoice = Input.nextInt();
+                       
 
                         switch (adminChoice) {
                             case 1 -> {
