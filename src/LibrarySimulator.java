@@ -46,33 +46,26 @@ public class LibrarySimulator {
             switch (Choice){
                 case 1,2,3 -> {
 
-                    int sessionBorrows = 0;
-                    int sessionReturns = 0;
-                    double sessionFees = 0.0;
-                    String currentUserName = "";
-
 
                     if (Choice == 1) {
-                        currentUserName = User_Name1;
+                        currentMember = User_1;
                     }
                     else if (Choice == 2) {
-                        currentUserName = User_Name2;
+                        currentMember = User_2;
                     }
                     else {
-                        currentUserName = User_Name3;
+                        currentMember = User_3;
                     }
+                 currentMember.reset();
                     // Choice 2 Will Store The User Operations Menu Choice
                     int Choice2;
 
                     System.out.println("\n=============================================");
-                    System.out.println("Welcome " + currentUserName + " To The Library");
+                    System.out.println("Welcome " + currentMember.getName() + " To The Library");
 
                     do {
 
-                        int currentUserBooks = 0;
-                        if (Choice == 1) currentUserBooks = User_Books1;
-                        else if (Choice == 2) currentUserBooks = User_Books2;
-                        else currentUserBooks = User_Books3;
+     
 
 
 
@@ -95,32 +88,26 @@ public class LibrarySimulator {
                             //View Borrowed Books Count
                             {
                                 System.out.println("\n=============================================");
-                                System.out.println("You Currently Have " + currentUserBooks + " Books Right Now");
+                                System.out.println("You Currently Have " + currentMember.viewBorrowedCount() + " Books Right Now");
 
                             }
 
                             case 2 ->
                             // Borrow A Book
                             {
-                                if (currentUserBooks < 5 ) {
-                                    if (Choice == 1) User_Books1++;
-                                    else if (Choice == 2) User_Books2++;
-                                    else User_Books3++;
-                                    currentUserBooks++;
-
-
-                                    System.out.println("\n=============================================");
-                                    System.out.println("You Successfully Borrowed 1 Book, Total Books Borrowed : " + currentUserBooks );
-
-                                    sessionBorrows++;
-                                    sessionFees += 0.50;
-                                    totalRevenue += 0.50;
-                                    TotalBorrows ++;
-                                }
-                                else if (currentUserBooks == 5) {
-                                    System.out.println("\n=============================================");
+                                boolean success = currentMember.borrowOne();
+                                
+                                System.out.println("\n=============================================");
+                                if (success) {
+                                    System.out.println("You Successfully Borrowed 1 Book.");
+                       
+                                    currentMember.viewBorrowedCount(); 
+                                } else {
                                     System.out.println("We're Sorry, You Can't Borrow More Than 5 Books");
                                 }
+                 
+                                }
+                                
 
 
 
@@ -128,34 +115,19 @@ public class LibrarySimulator {
                             case 3 ->
                             //Return A Book
                             {
-                                if (currentUserBooks == 0 ) {
-                                    System.out.println("\n=============================================");
+                             boolean success = currentMember.returnOne();
+                                
+                                System.out.println("\n=============================================");
+                                if (success) {
+                                    System.out.println("Thank You For Returning A Book.");
+                                } else {
                                     System.out.println("You Dont Have Any Books Borrowed");
-                                }
-                                else {
-                                    if (Choice == 1) User_Books1--;
-                                    else if (Choice == 2) User_Books2--;
-                                    else User_Books3--;
-
-                                    sessionReturns++;
-
-                                    System.out.println("\n=============================================");
-                                    System.out.println("Thank You For Returning "+ sessionReturns  + " Book(s) Out Of " + sessionBorrows + " Book(s)");
-
-
-
-                                    TotalReturns++;
-
-
                                 }
                             }
                             case 4 ->
                             //View Session Summary
                             {
-                                System.out.println("\n=============================================");
-                                System.out.println("Total Book Borrows In This Session : " + sessionBorrows + " Book(s)");
-                                System.out.println("Total Book Returns In This Session : " + sessionReturns + " Book(s)");
-                                System.out.printf("You Have The Total Credit Fee of %.2f SAR %n" , sessionFees );
+                                currentMember.displayStatistics();
                             }
 
                             //Exit To The Main Menu
@@ -191,24 +163,42 @@ public class LibrarySimulator {
                         switch (adminChoice) {
                             case 1 -> {
                                 System.out.println("\n=============================================");
-                                System.out.printf("Total Revenue:  %.2f SAR %n" , totalRevenue );
+                                System.out.printf("Total Revenue:  %.2f SAR %n" , Member.TotalRevenue );
                                 System.out.println("=============================================");
                             }
 
 
                             case 2 -> {
-                                if (TotalBorrows > TotalReturns) {
+                                em.out.println("1. View Total Revenue");
+                        System.out.println("2. View Most Frequent Operation");
+                        System.out.println("3. Exit to Main Menu");
+                        System.out.print("Enter your choice : ");
+                        adminChoice = Input.nextInt();
+
+                        switch (adminChoice) {
+                            case 1 -> {
+                                System.out.println("\n=============================================");
+                              
+                                System.out.printf("Total Revenue:  %.2f SAR %n", Member.TotalRevenue);
+                                System.out.println("=============================================");
+                            }
+
+                            case 2 -> {
+                               
+                                int borrows = Member.TotalBorrows;
+                                int returns = Member.TotalReturns;
+
+                                if (borrows > returns) {
                                     System.out.print("=============================================");
-                                    System.out.println("Most Frequent Operation Is Borrowing With The Count Of " + TotalBorrows + " Borrowed Books");
+                                    System.out.println("Most Frequent Operation Is Borrowing (" + borrows + ")");
                                     System.out.println("=============================================\n");
-                                } else if (TotalBorrows < TotalReturns) {
+                                } else if (borrows < returns) {
                                     System.out.println("=============================================");
-                                    System.out.println("Most Frequent Operation Is Returning With The Count Of " + TotalReturns + " Returned Books");
+                                    System.out.println("Most Frequent Operation Is Returning (" + returns + ")");
                                     System.out.println("=============================================\n");
-                                }
-                                else {
+                                } else {
                                     System.out.println("=============================================");
-                                    System.out.println("Most Frequent Operation Is Borrowing And Returning With The Count Of " + TotalBorrows + " Borrowed Books And " + TotalReturns + " Returned Books");
+                                    System.out.println("Operations are equal: Borrowing (" + borrows + ") and Returning (" + returns + ")");
                                     System.out.println("=============================================\n");
                                 }
                             }
