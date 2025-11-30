@@ -12,12 +12,12 @@ public class LibrarySimulator {
         Scanner Input = new Scanner(System.in);
 
         // Predefined 3 Library Accounts //
-        Member User_1 = new Member(4460000000, "Bader Alhashil", 0 );
+        Member User_1 = new Member(446000000, "Bader Alhashil", 0 );
 
-        Member User_2 = new Member(4461111111, "Sultan Al-Khlaifi", 0 );
+        Member User_2 = new Member(446111111, "Sultan Al-Khlaifi", 0 );
        
 
-        Member User_3 = new Member(4460000000, "Mohammed Al-Subaie", 0 );
+        Member User_3 = new Member(446222222, "Mohammed Al-Subaie", 0 );
 
        
 
@@ -98,11 +98,13 @@ Member currentMember;
                                 boolean success = currentMember.borrowOne();
                                 
                                 System.out.println("\n=============================================");
-                                if (success) {
+                                if (success) 
+                                {
                                     System.out.println("You Successfully Borrowed 1 Book.");
                        
                                     currentMember.viewBorrowedCount(); 
-                                } else {
+                                } else 
+                                {
                                     System.out.println("We're Sorry, You Can't Borrow More Than 5 Books");
                                 }
                  
@@ -111,7 +113,8 @@ Member currentMember;
 
 
 
-                            }
+                            
+                    }
                             case 3 ->
                             //Return A Book
                             {
@@ -169,7 +172,7 @@ Member currentMember;
 
 
                             case 2 -> {
-                                em.out.println("1. View Total Revenue");
+                                System.out.println("1. View Total Revenue");
                         System.out.println("2. View Most Frequent Operation");
                         System.out.println("3. Exit to Main Menu");
                         System.out.print("Enter your choice : ");
