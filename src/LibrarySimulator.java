@@ -12,12 +12,12 @@ public class LibrarySimulator {
         Scanner Input = new Scanner(System.in);
 
         // Predefined 3 Library Accounts //
-        Member User_1 = New Member(4460000000, "Bader Alhashil", 0 );
+        Member User_1 = new Member(4460000000, "Bader Alhashil", 0 );
 
-        Member User_2 = New Member(4461111111, "Sultan Al-Khlaifi", 0 );
+        Member User_2 = new Member(4461111111, "Sultan Al-Khlaifi", 0 );
        
 
-        Member User_3 = New Member(4460000000, "Mohammed Al-Subaie", 0 );
+        Member User_3 = new Member(4460000000, "Mohammed Al-Subaie", 0 );
 
        
 
@@ -35,8 +35,8 @@ public class LibrarySimulator {
             System.out.println("\n  Please select an option : \n");
 
             System.out.printf("1. Login as " +  User_1.getName() + ", ID : " + User_1.getId() + "\n");
-            System.out.printf("2. Login as " + User_2.getName() + ", ID : " + User_2.getID() + "\n");
-            System.out.printf("3. Login as " + User_3.getname() + ", ID : " + User_3.getID() + "\n");
+            System.out.printf("2. Login as " + User_2.getName() + ", ID : " + User_2.getId() + "\n");
+            System.out.printf("3. Login as " + User_3.getName() + ", ID : " + User_3.getId() + "\n");
             System.out.println("4. Login as Administrator ");
             System.out.println("5. Exit the program ");
 
@@ -45,7 +45,7 @@ public class LibrarySimulator {
 
             switch (Choice){
                 case 1,2,3 -> {
-
+Member currentMember;
 
                     if (Choice == 1) {
                         currentMember = User_1;
@@ -88,7 +88,7 @@ public class LibrarySimulator {
                             //View Borrowed Books Count
                             {
                                 System.out.println("\n=============================================");
-                                System.out.println("You Currently Have " + currentMember.viewBorrowedCount() + " Books Right Now");
+                                currentMember.viewBorrowedCount();
 
                             }
 
